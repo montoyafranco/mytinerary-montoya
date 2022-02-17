@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../image/logo.png'
+import {Link as LinkRouter} from "react-router-dom"
 
 
 const pages = ['Home', 'Viajes', 'Blog'];
@@ -37,7 +38,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar className ="custom-appbar" position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography>
