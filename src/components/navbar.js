@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import logo from '../image/logo.png'
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Home', 'Viajes', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -41,7 +41,7 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography>
-              <img src={logo} alt ="logo" height={100} width={75} />
+              <img src={logo} alt ="logo" height={100} width={100}/>
 
             
             
