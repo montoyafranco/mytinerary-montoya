@@ -1,12 +1,11 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import cities from "./cities"
+import cities from "./cities";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
-
 
 import React, { useRef, useState } from "react";
 // Import Swiper React components
@@ -16,7 +15,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "../styles/carrousel.css"
+import "../styles/carrousel.css";
 
 // import required modules
 import { Grid, Autoplay, Pagination, Navigation } from "swiper";
@@ -25,13 +24,15 @@ import { Grid, Autoplay, Pagination, Navigation } from "swiper";
 
 export default function Carrousel1() {
   return (
-      
     <div className="carrito">
+      
+      
+      
       <Swiper
         slidesPerView={2}
         slidesPerGroup={2}
         grid={{
-          rows: 2
+          rows: 2,
         }}
         spaceBetween={30}
         pagination={{ clickable: true }}
@@ -40,19 +41,17 @@ export default function Carrousel1() {
         className="mySwiper"
         autoplay={{
           delay: 4000,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         }}
         className="mySwiper"
       >
-        {cities.map(evento =>
-            <SwiperSlide>
-           <img className="imagenes" src={evento.image} />
+        {cities.map((evento) => (
+          <SwiperSlide>
+            <img className="imagenes" src={evento.image} />
             {evento.name}
-            </SwiperSlide>
-          )}
-        
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
-
   );
 }

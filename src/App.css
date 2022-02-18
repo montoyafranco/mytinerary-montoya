@@ -36,17 +36,15 @@
     transform: rotate(360deg);
   }
 }
- /* ------------------ACA ES TODO DE NAVBAR-------------- */
-.custom-appbar{
+/* ------------------ACA ES TODO DE NAVBAR-------------- */
+.custom-appbar {
   background-color: #616bfbe3 !important;
-  
 }
-.custom-appbar:hover{
+.custom-appbar:hover {
   background-color: rgba(172, 78, 122, 0.514) !important;
   color: black !important;
-
 }
-.carrito{
+.carrito {
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -54,29 +52,27 @@
   margin: auto !important;
   justify-content: center;
   align-items: center;
-  
 }
-.imagenes{
+.imagenes {
   width: 100%;
   height: 90%;
   opacity: 0.85 !important;
 }
-.divItinerary{
+.divItinerary {
   display: flex;
   width: 100%;
   background-image: url(./image/3516906.gif);
   height: 70vh;
   align-items: center;
   justify-content: center;
-  margin:auto;
+  margin: auto;
 }
-div p{
+div p {
   font-size: 3em;
   font-style: italic;
 }
 
-.avatar1{
+.avatar1 {
   width: 3.5rem !important;
   height: 3.5rem !important;
-  
 }

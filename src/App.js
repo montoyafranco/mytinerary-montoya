@@ -8,25 +8,16 @@ import Carrousel1 from "./components/carrousel1";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SimpleContainer from "./components/container";
 
+
+import Home from "../src/pages/home";
+import Footer from "./components/footer";
+
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <ResponsiveAppBar />
-        {/* <SimpleContainer/> */}
-        <div className="divItinerary">
-          <p>
-            "Find your perfect trip, designed by insiders who know and love
-            their cities!
-          </p>
-        </div>
-
-        <Carrousel1 />
-
-        <Routes>
-          <Route path="/card" element={<RecipeReviewCard />} />
-        </Routes>
-      </BrowserRouter>
+      <ResponsiveAppBar />
+      <Home />
+      <Footer/>
     </div>
   );
 }
