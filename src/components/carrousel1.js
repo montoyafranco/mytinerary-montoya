@@ -33,13 +33,13 @@ export default function Carrousel1() {
         grid={{
           rows: 2
         }}
-        spaceBetween={15}
+        spaceBetween={30}
         pagination={{ clickable: true }}
         navigation={true}
         modules={[Grid, Pagination, Autoplay, Pagination, Navigation]}
         className="mySwiper"
         autoplay={{
-          delay: 2500,
+          delay: 4000,
           disableOnInteraction: false
         }}
         className="mySwiper"

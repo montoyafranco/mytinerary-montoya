@@ -49,13 +49,17 @@
 .carrito{
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 70%;
   height: 80vh;
-  margin: 1rem;
+  margin: auto !important;
+  justify-content: center;
+  align-items: center;
+  
 }
 .imagenes{
   width: 100%;
   height: 90%;
+  opacity: 0.85 !important;
 }
 .divItinerary{
   display: flex;
@@ -69,4 +73,10 @@
 div p{
   font-size: 3em;
   font-style: italic;
+}
+
+.avatar1{
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  
 }

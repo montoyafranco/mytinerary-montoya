@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../image/logo.png'
 import {Link as LinkRouter} from "react-router-dom"
+import Avatar1 from '../image/avatar1.png'
 
 
 const pages = ['Home', 'Viajes', 'Blog'];
@@ -106,10 +107,11 @@ const ResponsiveAppBar = () => {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+          <Box className="avatar1" sx={{ flexGrow: 0 }}>
+            <Tooltip className="avatar1" title="Open settings">
+              <IconButton className="avatar1" onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar className="avatar1" src={Avatar1} alt="avatar1" />
+                
               </IconButton>
             </Tooltip>
             <Menu

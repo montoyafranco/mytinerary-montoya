@@ -37,7 +37,7 @@ const cities =[
     },
     {
       "id": 4,
-      "image":"https://i.pinimg.com/originals/b6/fc/86/b6fc8646ec32768bb176587ed018fa6e.gif",
+      "image":"https://c.tenor.com/qtBsOfU8yckAAAAC/evangelion-anime.gif",
       "name": "Metallica in concert",
       "date": "2022-01-22",
       "description": "Unico recital de la banda mas emblematica ",
