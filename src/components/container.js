@@ -10,6 +10,9 @@ export default function SimpleContainer() {
         <CssBaseline />
         <Container maxWidth="sm">
           <Box sx={{ bgcolor: "#cfe8fc", height: "100vh" }} />
+          <p>
+            Mytinerary
+          </p>
 
           <p>
             img elements must have an alt prop, either with meaningful text, or

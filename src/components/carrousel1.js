@@ -29,6 +29,25 @@ export default function Carrousel1() {
       
       
       <Swiper
+      breakpoints={{
+        0: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          grid:{
+            rows: 2,
+          },
+          spaceBetween:15,
+        },
+      
+        768: {
+          slidesPerView: 2,
+              slidesPerGroup: 2,
+              grid:{
+                rows: 2,
+              },
+              spaceBetween:15,
+        }
+      }}
         slidesPerView={2}
         slidesPerGroup={2}
         grid={{

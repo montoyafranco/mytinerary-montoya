@@ -38,20 +38,23 @@
 }
 /* ------------------ACA ES TODO DE NAVBAR-------------- */
 .custom-appbar {
-  background-color: #616bfbe3 !important;
+  background-color: #616bfb4d !important;
 }
 .custom-appbar:hover {
   background-color: rgba(172, 78, 122, 0.514) !important;
   color: black !important;
 }
 .carrito {
+  
   display: flex;
   flex-direction: column;
-  width: 70%;
-  height: 80vh;
+  width: 100%;
+  height: 70vh;
   margin: auto !important;
   justify-content: center;
   align-items: center;
+  
+  background-image: url(https://images.unsplash.com/photo-1624139283061-adee53a59791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBncmFkaWVudHxlbnwwfHwwfHw%3D&w=1000&q=80)!important;
 }
 .imagenes {
   width: 100%;
@@ -62,14 +65,26 @@
   display: flex;
   width: 100%;
   background-image: url(./image/3516906.gif);
-  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+
+  height: 80vh;
   align-items: center;
   justify-content: center;
   margin: auto;
+  flex-wrap: wrap;
 }
 div p {
+
+  display: flex;
+  flex-direction: column;
   font-size: 3em;
   font-style: italic;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .avatar1 {

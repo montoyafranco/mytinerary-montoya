@@ -7,6 +7,9 @@ function Home() {
       
         <div className="divItinerary">
           <p>
+            Mytinerary
+          </p>
+          <p>
             "Find your perfect trip, designed by insiders who know and love
             their cities!
           </p>
