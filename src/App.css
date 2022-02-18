@@ -38,7 +38,7 @@
 }
  /* ------------------ACA ES TODO DE NAVBAR-------------- */
 .custom-appbar{
-  background-color: #616bfb98 !important;
+  background-color: #616bfbe3 !important;
   
 }
 .custom-appbar:hover{
@@ -56,4 +56,17 @@
 .imagenes{
   width: 100%;
   height: 90%;
+}
+.divItinerary{
+  display: flex;
+  width: 100%;
+  background-image: url(./image/3516906.gif);
+  height: 70vh;
+  align-items: center;
+  justify-content: center;
+  margin:auto;
+}
+div p{
+  font-size: 3em;
+  font-style: italic;
 }
