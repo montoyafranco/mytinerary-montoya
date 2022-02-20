@@ -15,7 +15,7 @@ import logo from "../image/logo.png";
 import { Link as LinkRouter } from "react-router-dom";
 import Avatar1 from "../image/avatar1.png";
 
-const pages = ["Home", "Viajes", "Blog"];
+const pages = ["Home", "Cities", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -74,11 +74,16 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              
+                <MenuItem >
+                  <LinkRouter to={"cities"}>
+                    <button className="buttonWave">Cities</button>
+                  </LinkRouter>
+                  <LinkRouter to={"home"}>
+                    <button className="buttonWave">Home</button>
+                  </LinkRouter>
                 </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
           <Typography
@@ -87,16 +92,12 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           ></Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}><LinkRouter to={"cities"}>
+                    <button className="buttonWave">Cities</button>
+                  </LinkRouter>
+                  <LinkRouter to={"home"}>
+                    <button className="buttonWave">Home</button>
+                  </LinkRouter>
           </Box>
 
           <Box className="avatar1" sx={{ flexGrow: 0 }}>

@@ -27,7 +27,9 @@ export default function Carrousel1() {
     <div className="carrito">
       
       
-      
+      <div>
+        <p className="titleCarrousel">Popular MYtineraries</p>
+      </div>
       <Swiper
       breakpoints={{
         0: {

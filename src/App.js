@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Carrousel1 from "./components/carrousel1";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SimpleContainer from "./components/container";
+import Cities from "./pages/cities"
+
 
 
 import Home from "../src/pages/home";
@@ -15,9 +17,17 @@ import Footer from "./components/footer";
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <ResponsiveAppBar />
-      <Home />
+      <Routes>
+        <Route path="/Home" element={<Home/>}/>
+        <Route path="/Cities" element={<Cities/>}/>
+        <Route path="*" element={<Home/>} />
+
+      
+      </Routes>
       <Footer/>
+      </BrowserRouter>
     </div>
   );
 }

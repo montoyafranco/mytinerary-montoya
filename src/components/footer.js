@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as LinkRouter } from "react-router-dom";
 import {
   MDBFooter,
   MDBContainer,
@@ -13,9 +14,14 @@ export default function Footer() {
         <section className=''>
           <p className='d-flex justify-content-center align-items-center'>
             <span className='me-3'>Register for free</span>
+            <LinkRouter to={"cities"}>
+                    
+                  
             <button type='button' className='btn btn-outline-light btn-rounded'>
-              Sign up!
+              
+            Cities
             </button>
+            </LinkRouter>
           </p>
         </section>
       </MDBContainer>
