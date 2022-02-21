@@ -1,5 +1,7 @@
 import Carrousel1 from "../components/carrousel1";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Link as LinkRouter } from "react-router-dom";
+
 
 function Home() {
   return (
@@ -9,13 +11,17 @@ function Home() {
         <p className="pDiv">
           "Find your perfect trip, designed by insiders who know and love their
           cities!
+          <img src=""></img>
         </p>
       </div>
       <div className="wave">
         <p className="pWave">
           Explore the beauty of Japan - Start your adventure here
         </p>
-        <button className="buttonWave">Cities</button>
+        <LinkRouter to={"cities"}>
+          <button className="buttonWave">Cities</button>
+        </LinkRouter>
+        
       </div>
 
       <Carrousel1 />

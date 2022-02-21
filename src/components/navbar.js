@@ -82,6 +82,7 @@ const ResponsiveAppBar = () => {
                   <LinkRouter to={"home"}>
                     <button className="buttonWave">Home</button>
                   </LinkRouter>
+                  
                 </MenuItem>
               
             </Menu>
