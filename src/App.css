@@ -2,7 +2,7 @@
   text-align: center;
   text-decoration: none !important;
 }
-a{
+a {
   text-decoration: none !important;
 }
 
@@ -52,15 +52,15 @@ a{
 .carrito {
   padding: 15px;
   display: flex;
-  
+
   flex-direction: column;
   width: 100%;
   height: 100vh;
   margin: auto !important;
   justify-content: space-around !important;
   align-items: center;
-  
-  background-image: url(https://images.unsplash.com/photo-1624139283061-adee53a59791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBncmFkaWVudHxlbnwwfHwwfHw%3D&w=1000&q=80)!important;
+
+  background-image: url(https://images.unsplash.com/photo-1624139283061-adee53a59791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBncmFkaWVudHxlbnwwfHwwfHw%3D&w=1000&q=80) !important;
 }
 .imagenes {
   width: 100%;
@@ -76,15 +76,13 @@ a{
   background-attachment: fixed;
   background-size: cover;
 
-
   height: 90vh;
   align-items: center;
   justify-content: center;
   margin: auto;
   flex-wrap: wrap;
 }
-.pDiv{
-
+.pDiv {
   display: flex;
   flex-direction: column;
   font-size: 2rem;
@@ -99,7 +97,7 @@ a{
   height: 3.5rem !important;
 }
 /* // boton */
-.wave{
+.wave {
   display: flex;
   height: 50vh;
   width: 100%;
@@ -110,12 +108,12 @@ a{
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size:cover;
+  background-size: cover;
 
   background-image: url(https://wallpaperaccess.com/full/1274658.jpg);
 }
 
-.pWave{
+.pWave {
   display: flex;
   flex-direction: column;
   font-size: 2rem;
@@ -123,9 +121,8 @@ a{
   width: 100%;
   flex-wrap: wrap;
   font-weight: bolder;
-
 }
-.buttonWave{
+.buttonWave {
   display: flex;
   width: 25%;
   height: 10%;
@@ -133,7 +130,6 @@ a{
   justify-content: center;
   text-decoration: none !important;
   margin: auto;
-
 }
 .buttonWave {
   padding: 1.3em 3em;
@@ -150,34 +146,119 @@ a{
   cursor: pointer;
   outline: none;
   text-decoration: none !important;
- }
- 
- .buttonWave:hover {
-  background-color: #2EE59D;
+}
+
+.buttonWave:hover {
+  background-color: #2ee59d;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-7px);
- }
- 
- .buttonWave:active {
-  transform: translateY(-250px);
- }
+}
 
- .css-6hp17o-MuiList-root-MuiMenu-list{
-   background-color: #616bfb4d !important;
- }
- .citiesDiv{
-   display: flex;
-   width: 100%;
-   height: 90vh;
- }
- .citiesImg{
+.buttonWave:active {
+  transform: translateY(-250px);
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  background-color: #616bfb4d !important;
+}
+.citiesDiv {
+  flex-wrap: wrap;
   display: flex;
   width: 100%;
+  height: 100%;
+  background-image: url(https://i.gifer.com/ZSj2.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.citiesImg {
+  display: flex;
+  width: 100%;
+}
+footer.text-center.text-white {
+  background-color: black !important ;
+}
+.backgroundCities{
+  display: flex;
+  width: 100%;
+  height: 45vh;
+  background-image: url(https://i.pinimg.com/originals/48/b6/53/48b653c411fdec1d4993181afe00d5c9.gif);
+  background-position:center;
+  background-repeat: no-repeat;
+  background-attachment:initial;
+  background-size: cover ;
+  
+}
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+.input-wrapper {
+  position: relative;
+  margin: 20px auto;
+}
+.form-control {
+  
+  display: block;
+  line-height: 2em;
+  margin: 0;
+  padding-left: 10px;
+  width: 100%;
+  font-size: medium;
+  border: 1px solid #f4f4f4;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+.form-control:focus {
+  border: 1px solid #2c7ac9;
+}
+.control-label {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  bottom: 1.9rem;
+  color: #5d5d5d;
+  transition: 0.2s ease-in-out transform;
+  font-size: 12px;
+}
+.form-control:placeholder-shown + .control-label {
+  visibility: hidden;
+  z-index: -1;
+  transition: 0.2s ease-in-out;
+}
+.form-control:not(:placeholder-shown) + .control-label,
+.form-control:focus:not(:placeholder-shown) + .control-label {
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(-10px);
+  transition: 0.2s ease-in-out transform;
+}
+.MediaCartCities{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+  margin: auto;
+  margin-top: 15px;
+  padding: 15px;
 
+}
+.Cards2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+  margin: auto;
+  margin-top: 15px;
+  padding: 15px;
 
- }
-footer.text-center.text-white{
-   background-color: black !important ;
- }
- 
+}
