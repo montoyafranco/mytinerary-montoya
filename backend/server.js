@@ -1,6 +1,7 @@
-const express = require('express')
+require('dotenv').config()
+const express = require("express")
+require("./config/database")
 const PORT = 4000
+const app = express()
 
-const app =  express()
-
-app.listen(PORT,()=>console.log('Server ready on PORT' + PORT))
+app.listen (PORT, () => console.log ("server ready on port" + PORT))
