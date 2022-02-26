@@ -1,29 +1,38 @@
 import React from "react";
 import MediaCard from "../components/card";
-import { useEffect,useState } from "react";
-import axios from "axios"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Cities() {
-  const [apiCiudades, setApiCiudades ]= useState([])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  useEffect(()=>{
+  const [input, setInput] = useState();
+  const [apidata, setApiData] = useState([]);
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/allcities")
+      .then((respuesta) => setApiData(respuesta.data.response.ciudades));
+  }, []);
 
-
-    axios.get("http://localhost:4000/api/allcities")
-    .then(respuesta=>console.log(respuesta.data.response.ciudades))
-
-
-  },[])
-
-
-
+  function filterCards(event) {
+    setInput(
+      apidata.filter((city) =>
+        city.name
+          .toLowerCase()
+          .startsWith(event.target.value.toLowerCase().trim())
+      )
+    );
+  }
   return (
     <div className="citiesDiv">
       <div className="backgroundCities">
         <div class="box">
           <div class="input-wrapper">
             <input
+              onKeyUp={filterCards}
               type="text"
               id="input"
               class="form-control"
@@ -37,22 +46,7 @@ function Cities() {
       </div>
       <div className="MediaCartCities">
         <div className="Cards2">
-          <MediaCard />
-        </div>
-        <div className="Cards2">
-          <MediaCard />
-        </div>
-        <div className="Cards2">
-          <MediaCard />
-        </div>
-        <div className="Cards2">
-          <MediaCard />
-        </div>
-        <div className="Cards2">
-          <MediaCard />
-        </div>
-        <div className="Cards2">
-          <MediaCard />
+          <MediaCard search={input} />
         </div>
       </div>
     </div>
