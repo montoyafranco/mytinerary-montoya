@@ -1,7 +1,23 @@
 import React from "react";
 import MediaCard from "../components/card";
+import { useEffect,useState } from "react";
+import axios from "axios"
 
 function Cities() {
+  const [apiCiudades, setApiCiudades ]= useState([])
+
+  useEffect(()=>{
+
+
+
+    axios.get("http://localhost:4000/api/allcities")
+    .then(respuesta=>console.log(respuesta.data.response.ciudades))
+
+
+  },[])
+
+
+
   return (
     <div className="citiesDiv">
       <div className="backgroundCities">
