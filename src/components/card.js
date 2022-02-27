@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link as LinkRouter } from "react-router-dom";
 
 export default function MediaCard(props) {
   const [data, setData] = useState();
@@ -22,24 +23,33 @@ export default function MediaCard(props) {
   }, [props.search]);
 
   return (
-    <div className="cardsninamics">
-      <div className="titlecities">
-        <p>Cities</p>
-      </div>
+    <div className="MediaCartCities">
       {data?.length !== 0 ? (
         data?.map((evento) => (
-          <div className="cardsdinamics1">
-            <img className="imagenescard" src={evento.image} />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                <div className="title-cardcities">
-                  {evento.name}
-                  {evento.country}
+          <Card className="Cards2" sx={{ maxWidth: 450 }}>
+            <CardMedia
+              component="img"
+              height="500"
+              alt="green iguana"
+              img
+              className="imagenescard"
+              src={evento.image}
+            />
+            <div className="cardsdinamics1">
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {evento.name} {evento.country}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
                   {evento.description}
-                </div>
-              </Typography>
-            </CardContent>
-          </div>
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
+              </CardActions>
+            </div>
+          </Card>
         ))
       ) : (
         <h1>Ciudad no Encontrada</h1>

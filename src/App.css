@@ -167,7 +167,7 @@ a {
   display: flex;
   width: 100%;
   height: 100%;
-  background-image: url(https://i.gifer.com/ZSj2.gif);
+  background-image: url(https://thumbs.dreamstime.com/b/bandera-que-viaja-de-jap%C3%B3n-se%C3%B1ales-japonesas-78364460.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -184,11 +184,8 @@ footer.text-center.text-white {
   display: flex;
   width: 100%;
   height: 45vh;
-  background-image: url(https://i.pinimg.com/originals/48/b6/53/48b653c411fdec1d4993181afe00d5c9.gif);
-  background-position:center;
-  background-repeat: no-repeat;
-  background-attachment:initial;
-  background-size: cover ;
+  background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
   
 }
 .box{
