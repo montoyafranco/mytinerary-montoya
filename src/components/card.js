@@ -21,7 +21,7 @@ export default function MediaCard(props) {
       setData(props.search);
     }
   }, [props.search]);
-
+ //hola
   return (
     <div className="MediaCartCities">
       {data?.length !== 0 ? (
