@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link as LinkRouter } from "react-router-dom";
 
+
 export default function MediaCard(props) {
   const [data, setData] = useState();
   console.log(props.search);
@@ -44,10 +45,12 @@ export default function MediaCard(props) {
                   {evento.description}
                 </Typography>
               </CardContent>
+              <LinkRouter to={`/details/${evento._id}`}>
               <CardActions>
                 <Button size="small">Share</Button>
                 <Button size="small">Learn More</Button>
               </CardActions>
+              </LinkRouter>
             </div>
           </Card>
         ))

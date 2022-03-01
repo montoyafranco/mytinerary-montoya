@@ -12,6 +12,7 @@ import SimpleContainer from "./components/container";
 import Cities from "./pages/cities"
 import Home from "../src/pages/home";
 import Footer from "./components/footer";
+import CardsDetalle from "../src/components/details"
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Home" element={<Home/>}/>
         <Route path="/Cities" element={<Cities/>}/>
         <Route path="*" element={<Home/>} />
+        <Route path="/details/:id" element={<CardsDetalle/>} />
 
       
       </Routes>
