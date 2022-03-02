@@ -16,7 +16,7 @@ function Home() {
       </div>
       <div className="wave">
         <p className="pWave">
-          Explore the beauty of Japan - Start your adventure here
+          Explore the beauty in Asia - Start your adventure here
         </p>
         <LinkRouter to={"cities"}>
           <button className="buttonWave">Cities</button>

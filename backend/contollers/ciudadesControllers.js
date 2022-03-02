@@ -30,6 +30,11 @@ const ciudadesController = {
 
     await Ciudades.findOneAndDelete({ _id: id });
   },
+  getCitieById:  async (req, res) => { 
+    const id = req.params.id;
+    await Ciudades.findOne({ _id: id })
+    .then((respuesta) =>res.json({respuesta}) )
+  },
   modificarCiudad: async (req, res) => {
     const id = req.params.id;
     const ciudad = req.body.dataInput;

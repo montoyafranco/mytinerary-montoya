@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link as LinkRouter } from "react-router-dom";
+import CityAlert from "./noCityAlert"
 
 
 export default function MediaCard(props) {
@@ -30,7 +31,7 @@ export default function MediaCard(props) {
           <Card className="Cards2" sx={{ maxWidth: 450 }}>
             <CardMedia
               component="img"
-              height="500"
+              height="400"
               alt="green iguana"
               img
               className="imagenescard"
@@ -47,15 +48,15 @@ export default function MediaCard(props) {
               </CardContent>
               <LinkRouter to={`/details/${evento._id}`}>
               <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <Button size="small">Details</Button>
+               
               </CardActions>
               </LinkRouter>
             </div>
           </Card>
         ))
       ) : (
-        <h1>Ciudad no Encontrada</h1>
+        <div> <CityAlert/></div>
       )}
     </div>
   );

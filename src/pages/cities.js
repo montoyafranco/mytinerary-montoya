@@ -36,10 +36,10 @@ function Cities() {
               type="text"
               id="input"
               class="form-control"
-              placeholder="Full Name"
+              placeholder="Search cities"
             />
             <label for="input" class="control-label">
-              Full name
+              Search cities
             </label>
           </div>
         </div>
