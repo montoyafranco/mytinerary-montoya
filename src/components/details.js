@@ -13,7 +13,8 @@ export default function CardsDetalle() {
 
     useEffect(()=>{
     axios.get("http://localhost:4000/api/allcities")
-    .then(response=>setData(response.data.response.ciudades.filter(cities => cities._id === id)))
+    .then(response=>setData(response.data.response.ciudades
+    .filter(cities => cities._id === id)))
   },[])
 
   return (

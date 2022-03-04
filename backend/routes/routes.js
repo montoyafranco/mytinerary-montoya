@@ -10,5 +10,7 @@ Router.route("/allcities")
 
   .post(cargarCiudad);
 
-Router.route("/allcities/:id").delete(borrarCiudad).put(modificarCiudad);
+Router.route("/allcities/:id")
+.delete(borrarCiudad)
+.put(modificarCiudad);
 module.exports = Router;
