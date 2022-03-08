@@ -18,7 +18,7 @@ function Home() {
         <p className="pWave">
           Explore the beauty in Asia - Start your adventure here
         </p>
-        <LinkRouter to={"cities"}>
+        <LinkRouter to={"/cities"}>
           <button className="buttonWave">Cities</button>
         </LinkRouter>
         
