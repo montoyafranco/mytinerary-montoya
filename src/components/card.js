@@ -12,22 +12,11 @@ import CityAlert from "./noCityAlert"
 
 
 export default function MediaCard(props) {
-  const [data, setData] = useState();
-  console.log(props.search);
-  useEffect(() => {
-    if (props.search === undefined) {
-      axios
-        .get("http://localhost:4000/api/allcities")
-        .then((respuesta) => setData(respuesta.data.response.ciudades));
-    } else {
-      setData(props.search);
-    }
-  }, [props.search]);
- //hola
+  
   return (
     <div className="MediaCartCities">
-      {data?.length !== 0 ? (
-        data?.map((evento) => (
+      {props.cities?.length !== 0 ? (
+        props.cities?.map((evento) => (
           <Card className="Cards2" sx={{ maxWidth: 450 }}>
             <CardMedia
               component="img"
