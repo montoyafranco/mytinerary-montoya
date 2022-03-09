@@ -64,7 +64,7 @@ export default function Carrousel1() {
           delay: 4000,
           disableOnInteraction: false,
         }}
-        className="mySwiper"
+        
       >
         {cities.map((evento) => (
           <SwiperSlide>

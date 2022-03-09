@@ -1,4 +1,5 @@
 const Itineraries  = require('../models/itineraries') 
+const Ciudades = require('../models/ciudades')
 
 const itinerariesController = {
 
@@ -41,7 +42,7 @@ const itinerariesController = {
 
 
     cargarItinerario: async(req,res)=>{
-        const {city, event, imageUser, nameUser, price, duration, likes, hashtag, activities, comments} = req.body.dataInput
+        const {city, event, imageUser, nameUser, price, duration, likes, hashtag, comments,ciudad} = req.body.dataInput
         new Itineraries({city:city,  
                      event:event,
                      imageUser: imageUser,
@@ -50,7 +51,8 @@ const itinerariesController = {
                      duration:duration,
                      likes:likes,
                      hashtag:hashtag,
-                     activities:activities,
+                     ciudad:ciudad,
+                     
                      comments:comments}).save()
             .then((respuesta) => res.json({respuesta}))  
     },
@@ -73,6 +75,22 @@ const itinerariesController = {
 
         let itinerariedb = await Itineraries.findOneAndUpdate({_id:id}, itinerarie) 
         .then((respuesta) => res.json({respuesta}))
+    },
+    obtenerItinerarioPorIdCiudad :async (req ,res) =>{
+        try {
+            let itinerarie
+            const id = req.params.id
+            try{
+                itinerarie = await Itineraries.find({ciudad:id})
+            }catch(error){
+                console.log(error)
+            }
+            res.json({respuesta:itinerarie,success:true})
+
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
 };
