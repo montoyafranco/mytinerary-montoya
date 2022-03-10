@@ -5,7 +5,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesAction";
 import itinerariesAction from "../redux/actions/itinerariesAction";
-import ItineraryAccordion from "./itineraries";
+import Itineraries from "./itineraries";
 import NoItinerary from "./noItinerary";
 
 function CardsDetalle(props) {
@@ -38,11 +38,11 @@ function CardsDetalle(props) {
       </div>
 
       <div className="divAccordion">
-        <ItineraryAccordion itinerary={props.itineraries} />
+        <Itineraries itinerary={props.itineraries} />
       </div>
-      <div>
+      {/* <div>
         <NoItinerary noItinerary={props.itineraries.length ? true : false} />
-      </div>
+      </div> */}
     </div>
   );
 }
