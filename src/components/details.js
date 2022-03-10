@@ -33,7 +33,7 @@ function CardsDetalle(props) {
 
       <div className="cardsid">
         <img className="imageDetaillCard" src={card.element.image} />
-        {card.element.name}
+        <h1>{card.element.name} ,{card.element.country}</h1>
         <div>{card.element.description}</div>
       </div>
 

@@ -52,7 +52,7 @@ function Itineraries(props) {
   // },[])
   
     return (
-      <div>
+      <div className="divHamburguesaDetail">
         
         {props.itineraries.length === 0?
         <div>
@@ -62,57 +62,46 @@ function Itineraries(props) {
         <p className='custom-p-notFound'>No itineraries for the moment</p>
         </div> :
         
+        
         props.itineraries.map((itinerarie)=>(
-          
         
   
           <Card className="hamburguesa" >
-          <CardHeader
-            avatar={
-              <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                R
-              </Avatar>
-            }
-            
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title="Shrimp and Chorizo Paella"
-            subheader="September 14, 2016"
-          />
-          <CardMedia
-            component="img"
-            height="194"
-            image="/static/images/cards/paella.jpg"
-            alt="Paella dish"
-          />
+            <div className="divImgItinerary">
+              <img className="imgItinerary" src={itinerarie.imageUser} alt="" />
+            <div className="nameUser">
+              <h4>{itinerarie.nameUser}</h4>
+            </div>
+            <h4 className="hashtags">Hashtags: #{itinerarie.hashtag}</h4>
+              
+            </div>
+            <div>
+            <h2>{itinerarie.event}</h2>
+            </div>
+          
+          
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              {itinerarie.price}
+              <h3>Duration⏲:  {itinerarie.duration}Hs    </h3>
+              <h3>Likes:♥{itinerarie.likes}</h3>
               
             
             </Typography>
             <Typography variant="body2" color="text.secondary">
               
-              <h2>Price: {"💸".repeat(parseInt(itinerarie.price))}</h2>
+              <h3>Price: {"💸".repeat(parseInt(itinerarie.price))}</h3>
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
+            
+            
             <ExpandMore
               expand={expanded}
               onClick={handleExpandClick}
               aria-expanded={expanded}
               aria-label="show more"
               >
-              {expanded ? "" : "read more"}
+              {expanded ? "" : "Read More"}
             </ExpandMore>
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -120,8 +109,11 @@ function Itineraries(props) {
               <Typography paragraph></Typography>
               <Typography paragraph>
               </Typography>
-              <img src="https://us.123rf.com/450wm/laudiseno/laudiseno1810/laudiseno181000120/109640617-aislado-en-cinta-de-construcci%C3%B3n-dise%C3%B1o-de-ilustraci%C3%B3n-vectorial.jpg?ver=6" />
-              <ExpandMore
+              <div className="divUnderconstruction">
+              <img className="imgUnderconstruction" src="https://us.123rf.com/450wm/laudiseno/laudiseno1810/laudiseno181000120/109640617-aislado-en-cinta-de-construcci%C3%B3n-dise%C3%B1o-de-ilustraci%C3%B3n-vectorial.jpg?ver=6" />
+              </div>
+              
+              <ExpandMore className="showmore"
                 
                 expand={expanded}
                 onClick={handleExpandClick}
