@@ -132,7 +132,7 @@ function Itineraries(props) {
   }
   const mapDispatchToProps  ={
 
-    fetchearItineraries:itinerariesActions.fetchearItineraries,
+    fetchearItinerary:itinerariesActions.fetchearItinerary,
    
   
   }

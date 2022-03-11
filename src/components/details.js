@@ -29,11 +29,11 @@ function CardsDetalle(props) {
 
   return (
     <div className="cardsDetalle">
-      
-
       <div className="cardsid">
         <img className="imageDetaillCard" src={card.element.image} />
-        <h1>{card.element.name} ,{card.element.country}</h1>
+        <h1>
+          {card.element.name} ,{card.element.country}
+        </h1>
         <div>{card.element.description}</div>
       </div>
 

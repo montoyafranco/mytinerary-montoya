@@ -13,6 +13,8 @@ import Cities from "./pages/cities"
 import Home from "../src/pages/home";
 import Footer from "./components/footer";
 import CardsDetalle from "../src/components/details"
+import SignUp from "./components/signUp/signup";
+import SignIn from "./components/signIn/signIn";
 
 
 
@@ -26,6 +28,8 @@ function App() {
         <Route path="/Cities" element={<Cities/>}/>
         <Route path="*" element={<Home/>} />
         <Route path="/details/:id" element={<CardsDetalle/>} />
+        <Route path="/signin" element={<SignIn/>} />
+        <Route path="/signup" element={<SignUp/>} />
 
       
       </Routes>
