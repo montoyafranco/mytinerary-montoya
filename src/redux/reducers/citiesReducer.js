@@ -1,6 +1,6 @@
 const initialState = {
     cities:[],
-    auxiliar:[],
+    auxiliar:[], // aca esdonde seteo mis datos iniciales en todos lados
    filterCities: [], 
 }
 
