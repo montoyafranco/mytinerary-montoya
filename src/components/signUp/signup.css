@@ -1,18 +1,19 @@
-.bodyForm {
+.bodyFormUp {
+  display: flex;
     align-items: center;
     background-color: #000;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
   }
   
-  .form {
+  .formUp {
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 500px;
+    height: 800px;
     padding: 20px;
-    width: 320px;
+    width: 50%;
   }
   
   .title {
@@ -31,17 +32,17 @@
     margin-top: 10px;
   }
   
-  .input-container {
+  .input-containerUp {
     height: 50px;
     position: relative;
     width: 100%;
   }
   
-  .ic1 {
+  .ic1Up {
     margin-top: 40px;
   }
   
-  .ic2 {
+  .ic2Up {
     margin-top: 30px;
   }
   
@@ -79,7 +80,7 @@
     transform: translateY(8px);
   }
   
-  .placeholderSign {
+  .placeholderSignUp {
     color: #65657b;
     font-family: sans-serif;
     left: 20px;
@@ -91,16 +92,16 @@
     top: 20px;
   }
   
-  .input:focus ~ .placeholderSign,
-  .input:not(:placeholder-shown) ~ .placeholderSign {
+  .input:focus ~ .placeholderSignUp,
+  .input:not(:placeholder-shown) ~ .placeholderSignUp {
     transform: translateY(-30px) translateX(10px) scale(0.75);
   }
   
-  .input:not(:placeholder-shown) ~ .placeholderSign {
+  .input:not(:placeholder-shown) ~ .placeholderSignUp {
     color: #808097;
   }
   
-  .input:focus ~ .placeholderSign {
+  .input:focus ~ .placeholderSignUp {
     color: #dc2f55;
   }
   

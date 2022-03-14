@@ -7,6 +7,7 @@ import userActions from "../../redux/actions/userActions"
   
     const handleSubmit = (event) => {
         event.preventDefault()
+        let form = document.getElementById("formIn")
     
 
         const userData={
@@ -22,6 +23,7 @@ import userActions from "../../redux/actions/userActions"
         props.signUpUser(userData)
         console.log(userData)
         console.log(props.message)
+        form.reset()
         
     }
     // console.log(props.message)
@@ -30,62 +32,62 @@ import userActions from "../../redux/actions/userActions"
 
 
   return (
-    <form onSubmit={handleSubmit}>
-    <div className="bodyForm">
-      <div class="form">
+    <form onSubmit={handleSubmit} id="formIn">
+    <div className="bodyFormUp">
+      <div class="formUp">
         <div class="title">Welcome</div>
         <div class="subtitle">Let's create your account!</div>
-        <div class="input-container ic1">
+        <div class="input-containerUp ic1Up">
           <input id="firstname" class="input" type="text" placeholder=" " />
           <div class="cut"></div>
-          <label for="firstname" class="placeholderSign">
+          <label for="firstname" class="placeholderSignUp">
             First name
           </label>
         </div>
-        <div class="input-container ic2">
+        <div class="input-containerUp ic2Up">
           <input id="lastname" class="input" type="text" placeholder=" " />
           <div class="cut"></div>
-          <label for="lastname" class="placeholderSign">
+          <label for="lastname" class="placeholderSignUp">
             Last name
           </label>
         </div>
-        <div class="input-container ic2">
+        <div class="input-containerUp ic2Up">
           <input id="email" class="input" type="text" placeholder=" " />
           <div class="cut cut-short"></div>
-          <label for="email" class="placeholderSign">
+          <label for="email" class="placeholderSignUp">
             Email
           </label>
           
         </div>
-        <div class="input-container ic1">
+        <div class="input-containerUp ic1Up">
           <input id="password" class="input" type="text" placeholder=" " />
           <div class="cut"></div>
-          <label for="password" class="placeholderSign">
+          <label for="password" class="placeholderSignUp">
             Password
           </label>
         </div>
-        <div class="input-container ic1">
+        <div class="input-containerUp ic1Up">
           <input id="photoURL" class="input" type="text" placeholder=" " />
           <div class="cut"></div>
-          <label for="photoURL" class="placeholderSign">
+          <label for="photoURL" class="placeholderSignUp">
             Avatar
           </label>
         </div>
-        <div class="input-container ic1">
+        <div class="input-containerUp ic1Up">
           <input id="chooseCountry" class="input" type="text" placeholder=" " />
           <div class="cut"></div>
-          <label for="chooseCountry" class="placeholderSign">
+          <label for="chooseCountry" class="placeholderSignUp">
             Country
           </label>
         </div>
         <button type="submit" class="submit">
-          submit
+          Submit 🚀
         </button>
       </div>
     </div>
     </form>
   );
-}
+} 
 const mapDispatchToProps = {
   signUpUser: userActions.signUpUser,
   
@@ -94,7 +96,7 @@ const mapStateToProps = (state) => {
 return {
   message: state.userReducer.message,
 }
-}
+} 
 
 
 

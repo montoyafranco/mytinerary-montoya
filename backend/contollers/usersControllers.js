@@ -86,9 +86,12 @@ const usersControllers = {
         const { email, password,  from } = req.body.logedUser
         try {
             const usuarioExiste = await User.findOne({ email })
+            
+            
+            
 
             if (!usuarioExiste) {// PRIMERO VERIFICA QUE EL USUARIO EXISTA
-                res.json({ success: false, message: "Tu usuarios no a sido registrado realiza signIn" })
+                res.json({ success: false, message: "Tu usuarios no a sido registrado realiza signUp" })
 
             } else {
                 if (from !== "form-Signin") { 
@@ -96,6 +99,7 @@ const usersControllers = {
                     let contraseñaCoincide =  usuarioExiste.password.filter(pass =>bcryptjs.compareSync(password, pass))
                     
                     if (contraseñaCoincide.length >0) { //TERERO VERIFICA CONTRASEÑA
+                        console.log("entra en contraseña concidir")
 
                         const userData = {
                                         firstName: usuarioExiste.firstName,
