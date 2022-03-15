@@ -8,7 +8,8 @@ const userSchema =  new mongoose.Schema({
     emailVerificado:{type:Boolean, required:true},
     photoURL:{type:String},
     chooseCountry : {type: Array, required :true},
-    from:{type:Array}
+    from:{type:Array},
+    uniqueString:{type:String, required:true}
     
 })
 

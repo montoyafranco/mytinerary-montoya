@@ -31,6 +31,7 @@ const validator = (req, res, next) => {
     })
 
     const validation = schema.validate(req.body.userData, {abortEarly:false})
+    
        
     if (validation.error) {
         

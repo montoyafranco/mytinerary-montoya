@@ -27,6 +27,7 @@ function SignUp(props) {
   };
   // console.log(props.message)
   // alert(props.message.message)
+  console.log(props.snackbar)
 
   return (
     <div>
@@ -99,7 +100,7 @@ const mapDispatchToProps = {
 };
 const mapStateToProps = (state) => {
   return {
-    message: state.userReducer.message,
+    snackbar: state.userReducer.snackbar,
   };
 };
 
