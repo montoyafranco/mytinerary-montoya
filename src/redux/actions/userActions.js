@@ -22,6 +22,7 @@ const userActions = {
             console.log(user)
             
             if(user.data.success){
+                localStorage.setItem('token',user.data.response.token)
             console.log(user.data.success)
                 dispatch({type: 'user', payload: user.data.response.userData});
             
@@ -36,6 +37,7 @@ const userActions = {
     signOutUser :(closeuser)=>{
         return async (dispatch, getState) => {
         const user = axios.post('http://localhost:4000/api/auth/signout',{closeuser})
+        localStorage.removeItem('token')
         dispatch({type: 'user', payload: null});
     } 
 }

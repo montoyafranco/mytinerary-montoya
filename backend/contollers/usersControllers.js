@@ -138,10 +138,7 @@ const usersControllers = {
 
         const { email, password,  from } = req.body.logedUser
         try {
-            const usuarioExiste = await User.findOne({ email })
-            
-            
-            
+            const usuarioExiste = await User.findOne({ email })            
 
             if (!usuarioExiste) {// PRIMERO VERIFICA QUE EL USUARIO EXISTA
                 res.json({ success: false, message: "Tu usuarios no a sido registrado realiza signUp" })
@@ -155,15 +152,18 @@ const usersControllers = {
                         console.log("entra en contraseña concidir")
 
                         const userData = {
+                                        id:usuarioExiste._id,
                                         firstName: usuarioExiste.firstName,
                                         email: usuarioExiste.email,
                                         from:usuarioExiste.from
+
                                         }
                         await usuarioExiste.save()
+                        const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
 
                         res.json({ success: true, 
                                    from:from,
-                                   response: {userData }, 
+                                   response: {token,userData }, 
                                    message:"Bienvenido nuevamente "+userData.firstName,
                                  })
 
@@ -178,15 +178,17 @@ const usersControllers = {
                         let contraseñaCoincide =  usuarioExiste.password.filter(pass =>bcryptjs.compareSync(password, pass))
                         if(contraseñaCoincide.length >0){
                         const userData = {
+                            id: usuarioExiste._id,
                             firstName: usuarioExiste.firstName, 
                             email: usuarioExiste.email,
                             photoURL:usuarioExiste.photoURL,
                             from:usuarioExiste.from
                             }
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn:  60* 60*24 })
                         
                         res.json({ success: true, 
                             from: from, 
-                            response: {userData }, 
+                            response: {token,userData }, 
                             message:"Bienvenido nuevamente "+userData.firstName,
                           })
                         }else{
