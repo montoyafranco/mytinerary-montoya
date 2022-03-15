@@ -7,7 +7,10 @@ const userActions = {
         return async (dispatch, getState) => {
 
             const res = await axios.post('http://localhost:4000/api/auth/signup', { userData })
-            dispatch({type: 'message', payload: res.data});
+            dispatch({type: 'message', 
+                       payload: {view: true,
+                                 message: res.data.message,
+                                 success: res.data.success}});
             
         }
     },
@@ -16,18 +19,21 @@ const userActions = {
 
         return async (dispatch, getState) => {
             const user = await axios.post('http://localhost:4000/api/auth/signin', { logedUser })
-            console.log(logedUser)
+            console.log(user)
             
             if(user.data.success){
             console.log(user.data.success)
                 dispatch({type: 'user', payload: user.data.response.userData});
             
             
-            }else{console.log(user.data.message)}
+            }dispatch({type: 'message',
+            payload: {view: true,
+                      message: user.data.message,
+                      success: user.data.success}});
 
         } 
     },
-    SignOutUser :(closeuser)=>{
+    signOutUser :(closeuser)=>{
         return async (dispatch, getState) => {
         const user = axios.post('http://localhost:4000/api/auth/signout',{closeuser})
         dispatch({type: 'user', payload: null});

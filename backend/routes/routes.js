@@ -1,4 +1,5 @@
 const Router = require("express").Router();
+const validator = require('../config/validator')
 
 const ciudadesController = require("../contollers/ciudadesControllers");
 
@@ -38,7 +39,7 @@ const usersControllers = require('../contollers/usersControllers');
 const {signUpUsers, signInUser, signOutUser}= usersControllers
 
 Router.route('/auth/signup')
-.post(signUpUsers)
+.post(validator,signUpUsers)
 
 Router.route('/auth/signin')
 .post(signInUser)

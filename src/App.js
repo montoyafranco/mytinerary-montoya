@@ -18,12 +18,15 @@ import SignIn from "./components/signIn/signIn";
 
 
 
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
       <ResponsiveAppBar />
+      
       <Routes>
+        
         <Route path="/Home" element={<Home/>}/>
         <Route path="/Cities" element={<Cities/>}/>
         <Route path="*" element={<Home/>} />

@@ -127,6 +127,7 @@ const usersControllers = {
                         const userData = {
                             firstName: usuarioExiste.firstName, 
                             email: usuarioExiste.email,
+                            photoURL:usuarioExiste.photoURL,
                             from:usuarioExiste.from
                             }
                         
