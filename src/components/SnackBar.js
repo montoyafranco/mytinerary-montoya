@@ -22,8 +22,10 @@ function Snack(props) {
 
   const MySnackbar = styled(Snackbar)({
     backgroundColor: props.snackbar.success ? 'green' : 'red',
-    color: '#fff',
-    borderRadius: '4px',
+    color: 'white',
+    
+    border:'solid white',
+    borderRadius: '20px',
     padding: '6px 16px',
     fontWeight: '400',
     lineHeight: '1.43',

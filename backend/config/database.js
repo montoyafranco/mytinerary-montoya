@@ -10,4 +10,4 @@ const mongoose = require("mongoose")
  })
  
  .then(()=>console.log("Database Connected"))
- .catch ( err =>console.error(err))
+ .catch ( err =>console.error(err)) 
