@@ -2,7 +2,8 @@ import React from "react"
 import "./signIn.css"
 import { connect } from 'react-redux';
 import userActions from "../../redux/actions/userActions"
-import  Snack  from "../SnackBar";
+
+import FacebookSignIn from "./FacebookSignIn";
 
  function SignIn (props) {
     const handleSubmit = (event) => {
@@ -10,7 +11,7 @@ import  Snack  from "../SnackBar";
 		const logedUser = {
 			email: event.target[0].value,
 			password: event.target[1].value,
-			from: "form-Signin"
+			from: "form-Signup"
 		}
 		props.signInUser(logedUser)
     console.log(props.signInUser(logedUser))
@@ -20,7 +21,7 @@ import  Snack  from "../SnackBar";
 
     return(
       <div>
-        <Snack/>
+        
         <form onSubmit={handleSubmit}>
         <div >
             <div className="bodyForm">
@@ -41,7 +42,7 @@ import  Snack  from "../SnackBar";
             Password
           </label>
         </div>
-        
+        <FacebookSignIn/>
         <button type="submit" class="submit">
           submit
         </button>

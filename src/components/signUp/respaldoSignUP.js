@@ -1,0 +1,111 @@
+
+
+function SignUp(props) {
+  const [paises, setPaises] = useState("select...");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let form = document.getElementById("formIn");
+
+    const userData = {
+      firstName: event.target[0].value,
+      lastName: event.target[1].value,
+      email: event.target[2].value,
+      password: event.target[3].value,
+      photoURL: event.target[4].value,
+      chooseCountry: paises,
+
+      from: "form-Signup",
+    };
+    props.signUpUser(userData);
+    console.log(userData);
+    console.log(props.message);
+    form.reset();
+  };
+
+  console.log(props.snackbar);
+  function selectPaises(event) {
+    setPaises(event.target.value);
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit} id="formIn">
+        <div className="bodyFormUp">
+          <div class="formUp">
+            <div class="title">Welcome</div>
+            <div class="subtitle">Let's create your account!</div>
+
+            
+              <div class="input-containerUp ic1Up">
+                <select onClick={selectPaises} className="input" name="select">
+                  <option value="value" selected>
+                    Select your country
+                  </option>
+                  {apiSelect.map((countries) => {
+                    return (
+                      <option key={countries.name} value={countries.name}>
+                        {countries.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div> 
+              
+            {paises !== "select..." ? (<div> 
+            <div class="input-containerUp ic1Up">
+              <input id="firstname" class="input" type="text" placeholder=" " />
+              <div class="cut"></div>
+              <label for="firstname" class="placeholderSignUp">
+                First name
+              </label>
+            </div>
+            <div class="input-containerUp ic2Up">
+              <input id="lastname" class="input" type="text" placeholder=" " />
+              <div class="cut"></div>
+              <label for="lastname" class="placeholderSignUp">
+                Last name
+              </label>
+            </div>
+            <div class="input-containerUp ic2Up">
+              <input id="email" class="input" type="text" placeholder=" " />
+              <div class="cut cut-short"></div>
+              <label for="email" class="placeholderSignUp">
+                Email
+              </label>
+            </div>
+            <div class="input-containerUp ic1Up">
+              <input id="password" class="input" type="text" placeholder=" " />
+              <div class="cut"></div>
+              <label for="password" class="placeholderSignUp">
+                Password
+              </label>
+            </div>
+            <div class="input-containerUp ic1Up">
+              <input id="photoURL" class="input" type="text" placeholder=" " />
+              <div class="cut"></div>
+              <label for="photoURL" class="placeholderSignUp">
+                Avatar
+              </label>
+            </div>
+
+            <FacebookSignUp />
+            <button type="submit" class="submit">
+              Submit 🚀
+            </button>
+            </div>):(<h1>Select your country to continue</h1>)}
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+}
+const mapDispatchToProps = {
+  signUpUser: userActions.signUpUser,
+};
+const mapStateToProps = (state) => {
+  return {
+    snackbar: state.userReducer.snackbar,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

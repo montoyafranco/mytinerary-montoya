@@ -24,11 +24,7 @@ const sendEmail = async (email, uniqueString) => {
     from: sender, //DE QUIEN
     to: email, //A QUIEN
     subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
-    html: `
-        <div >
-        <h1 style="color:red">Presiona <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
-        </div>
-        `,
+    html: `<h1 style="color:red">Press <a href=http://localhost:4000/api/verify/${uniqueString}>here</a> to confirm your email. Thanks </h1>`,
   };
   await transporter.sendMail(mailOptions, function (error, response) {
     //SE REALIZA EL ENVIO
@@ -41,6 +37,7 @@ const sendEmail = async (email, uniqueString) => {
 };
 
 const usersControllers = {
+
   verifyEmail: async (req, res) => {
     const { uniqueString } = req.params; //EXTRAE EL EL STRING UNICO DEL LINK
 
@@ -49,7 +46,7 @@ const usersControllers = {
     if (user) {
       user.emailVerificado = true; //COLOCA EL CAMPO emailVerified en true
       await user.save();
-      res.redirect("http://localhost:3000/signIn"); //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
+      res.redirect("http://localhost:3000/signin"); //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
       //return  res.json({success:true, response:"Su email se ha verificado correctamente"})
     } else {
       res.json({ success: false, response: "Su email no se ha verificado" });
@@ -57,7 +54,6 @@ const usersControllers = {
   },
 
   signUpUsers: async (req, res) => {
-    console.log(req.body);
     let {
       firstName,
       lastName,
@@ -66,27 +62,26 @@ const usersControllers = {
       photoURL,
       chooseCountry,
       from,
-     } = req.body.userData;
-    const test = req.body.test;
+    } = req.body.userData;
 
     try {
       const usuarioExiste = await User.findOne({ email }); //BUSCAR SI EL USUARIO YA EXISTE EN DB
 
       if (usuarioExiste) {
         console.log(usuarioExiste.from.indexOf(from));
-        if (usuarioExiste.from.indexOf(from) !== -1) {
+        if (usuarioExiste.from.indexOf(from) === -1) {
+          //INDEXOF = 0 EL VALOR EXISTE EN EL INDICE EQ A TRUE -1 NO EXITE EQ A FALSE
           console.log(
-            "resultado de if " + (usuarioExiste.from.indexOf(from) !== 0)
-          ); //INDEXOF = 0 EL VALOR EXISTE EN EL INDICE EQ A TRUE -1 NO EXITE EQ A FALSE
+            "resultado de if " + (usuarioExiste.from.indexOf(from) === 0)
+          );
           res.json({
             success: false,
             from: "signup",
             message:
-              "Ya has realizado tu SignUp de esta forma por favor realiza SignIn",
+              "You have already made your SignUp in this way, please SignIn",
           });
         } else {
           const contraseñaHasheada = bcryptjs.hashSync(password, 10);
-
           usuarioExiste.from.push(from);
           usuarioExiste.password.push(contraseñaHasheada);
           if (from === "form-Signup") {
@@ -95,28 +90,29 @@ const usersControllers = {
             await usuarioExiste.save();
 
             await sendEmail(email, usuarioExiste.uniqueString); //LLAMA A LA FUNCION ENCARGADA DEL ENVIO DEL CORREO ELECTRONICO
+
             res.json({
               success: true,
-              from: "signup",
+              from: "signup", //RESPONDE CON EL TOKEN Y EL NUEVO USUARIO
               message:
-                "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN ",
+                "We sent you an email to validate it, please check your email to complete the signUp",
             });
           } else {
             usuarioExiste.save();
+            console.log(usuarioExiste)
 
             res.json({
               success: true,
               from: "signup",
               message:
-                "Agregamos " + from + " a tus medios para realizar signIn",
+                "Agregamos" + from + " a tus medios para realizar signIn",
             });
-          }
+          } // EN ESTE PUNTO SI EXITE RESPONDE FALSE
         }
       } else {
         //SI EL USUARIO NO ESXITE
 
         const contraseñaHasheada = bcryptjs.hashSync(password, 10); //LO CREA Y ENCRIPTA LA CONTRASEÑA
-
         // CREA UN NUEVO OBJETO DE PERSONAS CON SU USUARIO Y CONTRASEÑA (YA ENCRIPTADA)
         const nuevoUsuario = await new User({
           firstName,
@@ -137,7 +133,7 @@ const usersControllers = {
           res.json({
             success: true,
             from: "signup",
-            message: "Felicitaciones se ha creado tu usuario con " + from,
+            message: "congratulations your user has been created with" + from,
           }); // AGREGAMOS MENSAJE DE VERIFICACION
         } else {
           //PASAR EMAIL VERIFICADO A FALSE
@@ -149,7 +145,7 @@ const usersControllers = {
             success: true,
             from: "signup",
             message:
-              "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp ",
+              "We sent you an email to validate it, please check your email to complete the signUp",
           }); // AGREGAMOS MENSAJE DE VERIFICACION
         }
       }
@@ -157,27 +153,29 @@ const usersControllers = {
       console.log(error);
       res.json({
         success: false,
-        message: "Algo a salido mal intentalo en unos minutos",
+        message: "something went wrong, please try again in a few minutes",
       }); //CAPTURA EL ERROR
     }
   },
+
+
 
   signInUser: async (req, res) => {
     const { email, password, from } = req.body.logedUser;
     try {
       const usuarioExiste = await User.findOne({ email });
 
-      //METODO PARA BUSCAR PASSWORD MEDIANTE FROM
-      console.log(usuarioExiste.from);
-      console.log(from);
-      const indexpass = usuarioExiste.from.indexOf(from);
-      console.log(usuarioExiste.password[indexpass]);
+        //METODO PARA BUSCAR PASSWORD MEDIANTE FROM
+        console.log(usuarioExiste.from);
+        console.log(from);
+        const indexpass = usuarioExiste.from.indexOf(from);
+        console.log(usuarioExiste.password[indexpass]);
 
       if (!usuarioExiste) {
         // PRIMERO VERIFICA QUE EL USUARIO EXISTA
         res.json({
           success: false,
-          message: "Tu usuarios no ha sido registrado realiza signUp",
+          message: "Your user has not been registered, please signUp",
         });
       } else {
         if (from !== "form-Signup") {
@@ -186,34 +184,33 @@ const usersControllers = {
           );
 
           if (contraseñaCoincide.length > 0) {
+            //TERERO VERIFICA CONTRASEÑA
+            console.log("contraseña concidir");
 
             const userData = {
               id: usuarioExiste._id,
               firstName: usuarioExiste.firstName,
               email: usuarioExiste.email,
-              photoURL: usuarioExiste.photoURL,
-              from: from,
+              from: usuarioExiste.from,
             };
             await usuarioExiste.save();
 
-            const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, {
-              expiresIn: 60 * 60 * 24,
-            });
+            const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
 
             res.json({
               success: true,
               from: from,
-              response: { token, userData },
-              message: "Bienvenido nuevamente " + userData.firstName,
+              response: { userData },
+              message: "Welcome again " + userData.firstName,
             });
           } else {
             res.json({
               success: false,
               from: from,
               message:
-                "No has realizado el registro con " +
+                "you have not registered with " +
                 from +
-                "si quieres ingresar con este metodo debes hacer el signUp con " +
+                ", If you want to enter with this method you must do the signUp with " +
                 from,
             });
           }
@@ -224,31 +221,35 @@ const usersControllers = {
             );
             console.log(contraseñaCoincide);
             console.log(
-              "resultado de busqueda de contrasela: " +
+              "resultado de busqueda de contraseña: " +
                 (contraseñaCoincide.length > 0)
             );
+
             if (contraseñaCoincide.length > 0) {
               const userData = {
                 id: usuarioExiste._id,
                 firstName: usuarioExiste.firstName,
                 email: usuarioExiste.email,
                 photoURL: usuarioExiste.photoURL,
-                from: from,
+                from: usuarioExiste.from,
               };
+
               const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, {
-                expiresIn: 60 * 60 * 24,
+                expiresIn: 60 * 60 * 24, //expira en 24 horas
               });
+
               res.json({
                 success: true,
                 from: from,
                 response: { token, userData },
-                message: "Bienvenido nuevamente " + userData.firstName,
+                message:
+                  "Welcome again " + userData.firstName + " ,we missed you 😭",
               });
             } else {
               res.json({
                 success: false,
                 from: from,
-                message: "El usuario o el password no coinciden",
+                message: "username or password do not match brother",
               });
             }
           } else {
@@ -256,7 +257,7 @@ const usersControllers = {
               success: false,
               from: from,
               message:
-                "No has verificado tu email, por favor verifica ti casilla de emails para completar tu signUp",
+                "You have not verified your email, please check your email box to complete the signUp",
             });
           }
         } //SI NO ESTA VERIFICADO
@@ -265,28 +266,28 @@ const usersControllers = {
       console.log(error);
       res.json({
         success: false,
-        message: "Algo a salido mal intentalo en unos minutos",
+        message: "omething went wrong, please try again in a few minutes",
       });
     }
   },
   signOutUser: async (req, res) => {
     const email = req.body.closeuser;
     const user = await User.findOne({ email });
-    // await user.save();
+    await user.save();
     res.json(console.log("sesion cerrada " + email));
   },
 
   verificarToken: (req, res) => {
     console.log(req.user);
-    if (!req.err) { //si es false nos va a dar una respuesta
+    if (!req.err) {
       res.json({
         success: true,
         response: {
           id: req.user.id,
           firstName: req.user.firstName,
           lastName: req.user.lastName,
+          fullName: req.user.fullName,
           email: req.user.email,
-          photoURL: req.user.photoURL,
           from: "token",
         },
         message: "Bienvenido nuevamente " + req.user.firstName,
@@ -299,4 +300,5 @@ const usersControllers = {
     }
   },
 };
+
 module.exports = usersControllers;
