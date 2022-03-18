@@ -187,6 +187,7 @@ a {
 }
 footer.text-center.text-white {
   background-color: black !important ;
+  display: flex;
 }
 .backgroundCities {
   display: flex;

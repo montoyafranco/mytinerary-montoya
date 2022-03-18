@@ -5,16 +5,24 @@
     display: flex;
     justify-content: center;
     height: 100%;
+    flex-grow: 1;
+    min-height: 80vh;
+    
+    
   }
   
   .formUp {
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 800px;
-    padding: 20px;
-    width: 50%;
+    height: 100%;
+    padding: 0px 0px 20px 0px;
+    width: 80%;
+    justify-content: center;
+    margin:auto ;
+    margin-top: 15px;
   }
+  
   
   .title {
     color: #eee;
@@ -56,7 +64,19 @@
     height: 100%;
     outline: 0;
     padding: 4px 20px 0;
-    width: 100%;
+    width: 80%;
+  }
+  .inputUp {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #808097;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 80%;
   }
   
   .cut {
@@ -117,10 +137,47 @@
     margin-top: 38px;
      outline: 0;
     text-align: center;
-    width: 100%;
+    width: 80%;
   }
   
   .submit:active {
     background-color: #06b;
   }
   
+  .buttonsocial{ display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 50px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border: 0px;
+    border-radius: 10px !important;
+  }
+  .my-facebook-button-class{
+    background-color: rgb(52, 52, 207);
+    color:white;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: 15px;
+    
+  }
+  
+  .buttonsocial :nth-child(1){
+    margin-right: 0px !important;
+    width: 45px !important;
+  }
+  .callToActionSignup{
+    color: white;
+    font-size: 2em;
+    size: 6rem;
+  }
+  .callToActionSignup2{
+    color: white;
+    font-size: 1.5em;
+    
+
+  }

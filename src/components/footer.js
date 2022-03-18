@@ -31,7 +31,7 @@ export default function Footer() {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        <img className="mario" src="https://i.gifer.com/origin/e5/e5c61ee7a6e01580a10c50afbad9a49b_w200.gif"></img>
+        
         <a className="text-white" href="#">
         
         </a>

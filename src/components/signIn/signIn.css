@@ -10,9 +10,9 @@
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 500px;
+    height: 100%;
     padding: 20px;
-    width: 320px;
+    width: 30%;
   }
   
   .title {
@@ -122,4 +122,12 @@
   .submit:active {
     background-color: #06b;
   }
-  
+  .facebookSignin{
+    
+    margin: auto;
+  }
+  .custom-call-signIn3{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+  }

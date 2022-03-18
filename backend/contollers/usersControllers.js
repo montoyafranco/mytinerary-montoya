@@ -26,7 +26,7 @@ const sendEmail = async (email, uniqueString) => {
     subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
     html: `
         <div >
-        <h1 style="color:red">Presiona <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
+        <h1 style="color:red">Click on <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> to confirm your account </h1>
         </div>
         `,
   };
@@ -52,7 +52,7 @@ const usersControllers = {
       res.redirect("http://localhost:3000/signIn"); //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
       //return  res.json({success:true, response:"Su email se ha verificado correctamente"})
     } else {
-      res.json({ success: false, response: "Su email no se ha verificado" });
+      res.json({ success: false, response: "Your email its not verified" });
     }
   },
 
@@ -82,7 +82,7 @@ const usersControllers = {
             success: false,
             from: "signup",
             message:
-              "Ya has realizado tu SignUp de esta forma por favor realiza SignIn",
+              "You have already registered this way",
           });
         } else {
           const contraseñaHasheada = bcryptjs.hashSync(password, 10);
@@ -99,7 +99,7 @@ const usersControllers = {
               success: true,
               from: "signup",
               message:
-                "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN ",
+                "We send you an email .Please check your email and validate your account ",
             });
           } else {
             usuarioExiste.save();
@@ -108,7 +108,7 @@ const usersControllers = {
               success: true,
               from: "signup",
               message:
-                "Agregamos " + from + " a tus medios para realizar signIn",
+                "Added " + from + " to your signIn methods",
             });
           }
         }
@@ -137,7 +137,7 @@ const usersControllers = {
           res.json({
             success: true,
             from: "signup",
-            message: "Felicitaciones se ha creado tu usuario con " + from,
+            message: "Your username has been created with " + from,
           }); // AGREGAMOS MENSAJE DE VERIFICACION
         } else {
           //PASAR EMAIL VERIFICADO A FALSE
@@ -149,7 +149,7 @@ const usersControllers = {
             success: true,
             from: "signup",
             message:
-              "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp ",
+              "An email has been sended.Check you email ",
           }); // AGREGAMOS MENSAJE DE VERIFICACION
         }
       }
@@ -157,7 +157,7 @@ const usersControllers = {
       console.log(error);
       res.json({
         success: false,
-        message: "Algo a salido mal intentalo en unos minutos",
+        message: "Something went wrong.Try again later",
       }); //CAPTURA EL ERROR
     }
   },
@@ -177,7 +177,7 @@ const usersControllers = {
         // PRIMERO VERIFICA QUE EL USUARIO EXISTA
         res.json({
           success: false,
-          message: "Tu usuarios no ha sido registrado realiza signUp",
+          message: "Your username its not regestered.Please sign up",
         });
       } else {
         if (from !== "form-Signup") {
@@ -204,16 +204,16 @@ const usersControllers = {
               success: true,
               from: from,
               response: { token, userData },
-              message: "Bienvenido nuevamente " + userData.firstName,
+              message: "Welcome back " + userData.firstName,
             });
           } else {
             res.json({
               success: false,
               from: from,
               message:
-                "No has realizado el registro con " +
+                "You did not registered with " +
                 from +
-                "si quieres ingresar con este metodo debes hacer el signUp con " +
+                "if you want to sign in , first you need to SignUp with " +
                 from,
             });
           }
@@ -242,13 +242,13 @@ const usersControllers = {
                 success: true,
                 from: from,
                 response: { token, userData },
-                message: "Bienvenido nuevamente " + userData.firstName,
+                message: "Welcome back " + userData.firstName,
               });
             } else {
               res.json({
                 success: false,
                 from: from,
-                message: "El usuario o el password no coinciden",
+                message: "the user or password is wrong",
               });
             }
           } else {
@@ -256,7 +256,7 @@ const usersControllers = {
               success: false,
               from: from,
               message:
-                "No has verificado tu email, por favor verifica ti casilla de emails para completar tu signUp",
+                "Your email it is not validated.Please check your mail to activate the account",
             });
           }
         } //SI NO ESTA VERIFICADO
@@ -265,7 +265,7 @@ const usersControllers = {
       console.log(error);
       res.json({
         success: false,
-        message: "Algo a salido mal intentalo en unos minutos",
+        message: "Something went wrong !!!!!!!",
       });
     }
   },
@@ -273,7 +273,7 @@ const usersControllers = {
     const email = req.body.closeuser;
     const user = await User.findOne({ email });
     // await user.save();
-    res.json(console.log("sesion cerrada " + email));
+    res.json(console.log("Session closed" + email));
   },
 
   verificarToken: (req, res) => {
@@ -289,12 +289,12 @@ const usersControllers = {
           photoURL: req.user.photoURL,
           from: "token",
         },
-        message: "Bienvenido nuevamente " + req.user.firstName,
+        message: "Wellcome back " + req.user.firstName,
       });
     } else {
       res.json({
         success: false,
-        message: "Por favor realiza nuevamente signIn",
+        message: "Please, try to sign in again",
       });
     }
   },
