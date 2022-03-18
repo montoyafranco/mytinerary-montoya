@@ -168,10 +168,9 @@ const usersControllers = {
       const usuarioExiste = await User.findOne({ email });
 
       //METODO PARA BUSCAR PASSWORD MEDIANTE FROM
-      console.log(usuarioExiste.from);
-      console.log(from);
-      const indexpass = usuarioExiste.from.indexOf(from);
-      console.log(usuarioExiste.password[indexpass]);
+      
+      // const indexpass = usuarioExiste.from.indexOf(from);
+      // console.log(usuarioExiste.password[indexpass]);
 
       if (!usuarioExiste) {
         // PRIMERO VERIFICA QUE EL USUARIO EXISTA

@@ -187,7 +187,7 @@ a {
 }
 footer.text-center.text-white {
   background-color: black !important ;
-  display: flex;
+  
 }
 .backgroundCities {
   display: flex;
@@ -356,4 +356,7 @@ background: linear-gradient(0deg, rgba(32,37,37,1) 2%, rgba(158,56,168,0.6755077
   align-items: flex-end;
   justify-content: flex-start;
   margin: 1rem;
+}
+.text-center{
+  padding: 0 !important;
 }

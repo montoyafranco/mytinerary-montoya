@@ -23,10 +23,12 @@ function SignIn(props) {
         <div>
           <div className="bodyForm">
             <div class="form">
+            <div class="form">
+
               <div class="title">Welcome</div>
               <div class="subtitle"></div>
-              <div class="input-container ic2">
-                <input id="email" class="input" type="email" placeholder=" " />
+              <div class="input-container ic1">
+                <input id="email" class="input inputIn" type="email" placeholder=" " />
                 <div class="cut cut-short"></div>
                 <label for="email" class="placeholderSign">
                   Email
@@ -35,7 +37,7 @@ function SignIn(props) {
               <div class="input-container ic1">
                 <input
                   id="password"
-                  class="input"
+                  class="input inputIn"
                   type="password"
                   placeholder=" "
                 />
@@ -59,6 +61,8 @@ function SignIn(props) {
                   </p>
                 </div>
             </div>
+            </div>
+
           </div>
         </div>
       </form>
