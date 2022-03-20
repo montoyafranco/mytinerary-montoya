@@ -360,3 +360,14 @@ background: linear-gradient(0deg, rgba(32,37,37,1) 2%, rgba(158,56,168,0.6755077
 .text-center{
   padding: 0 !important;
 }
+.contenedorImagenes{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.imgItineraries{
+  display: flex;
+  width: 30%;
+  flex-wrap:wrap;
+  margin:auto;
+}

@@ -53,4 +53,20 @@ Router.route('/verify/:uniqueString') //RECIBE EL LINK DE USUARIO
 Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt',{ session:false }), verificarToken)
 
+const activitiesControllers  = require('../contollers/activitiesControllers')
+const {obtenerActivities,obtenerUnActivities,cargarActivities,borrarActivities, modificarActivities,obtenerActividadporItinerary} = activitiesControllers
+Router.route('/allactivities')
+.get(obtenerActivities)
+.post(cargarActivities)
+
+
+Router.route('/allactivities/:id')
+.delete(borrarActivities)
+.put(modificarActivities)
+.get(obtenerUnActivities)
+
+Router.route('/allactivities/itinerary/:id')
+.get(obtenerActividadporItinerary)
+
+
 module.exports = Router  
