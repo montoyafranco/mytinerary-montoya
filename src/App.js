@@ -38,8 +38,8 @@ function App(props) {
           <Route path="/Cities" element={<Cities />} />
           <Route path="*" element={<Home />} />
           <Route path="/details/:id" element={<CardsDetalle />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+         {!props.user && <Route path="/signin" element={<SignIn />} />}
+          {!props.user &&<Route path="/signup" element={<SignUp />} />}
         </Routes>
         <Footer />
       </BrowserRouter>
@@ -50,5 +50,11 @@ const mapDispatchToProps = {
   VerificarToken: userActions.VerificarToken,
 
 }
+const mapStateToProps=(state) =>{
 
-export default connect(null,mapDispatchToProps) (App) ;
+  return{
+    user:state.userReducer.user
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (App) ;

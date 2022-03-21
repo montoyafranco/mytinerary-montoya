@@ -6,6 +6,8 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 
+import ActivitiesCard from "./activities"
+
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
@@ -86,7 +88,7 @@ function Itineraries(props) {
               <CardContent>
                 <Typography paragraph></Typography>
                 <Typography paragraph></Typography>
-                <div className="contenedorImagenes">
+                {/* <div className="contenedorImagenes">
                   <div>
                     <img className="imgItineraries" src="" />
                   </div>
@@ -96,7 +98,7 @@ function Itineraries(props) {
                   <div>
                     <img className="imgItineraries" src="" />
                   </div>
-                </div>
+                </div> */} <ActivitiesCard/>
 
                 <ExpandMore
                   className="showmore"
@@ -117,6 +119,7 @@ function Itineraries(props) {
 }
 const mapDispatchToProps = {
   fetchearItinerary: itinerariesActions.fetchearItinerary,
+  fetchearActivity: itinerariesActions.fetchearActivity,
 };
 
 const mapStateToProps = (state) => {

@@ -7,6 +7,7 @@ import citiesActions from "../redux/actions/citiesAction";
 import itinerariesAction from "../redux/actions/itinerariesAction";
 import Itineraries from "./itineraries";
 import NoItinerary from "./noItinerary";
+import activitiesAction from "../redux/actions/activitiesAction"
 
 function CardsDetalle(props) {
   const { id } = useParams();
