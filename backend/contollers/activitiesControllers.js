@@ -25,7 +25,7 @@ const activitiesControllers = {
     let error = null;
 
     try {
-      activities = await Activities.findOne({ _id: id });
+      activities = await Activities.find({ itinerary: id });
       console.log(activities);
     } catch (err) {
       error = err;

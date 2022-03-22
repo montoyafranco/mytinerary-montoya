@@ -6,10 +6,12 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 
-import ActivitiesCard from "./activities"
+import ActivitiesCard from "./activities";
 
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import { useEffect } from "react";
+import activitiesAction from "../redux/actions/activitiesAction";
 
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesAction";
@@ -36,11 +38,7 @@ function Itineraries(props) {
 
   console.log(props);
 
-  // useEffect(()=>{
-
-  //   props.fetchearItineraries()
-
-  // },[])
+  
 
   return (
     <div className="divHamburguesaDetail">
@@ -88,18 +86,9 @@ function Itineraries(props) {
               <CardContent>
                 <Typography paragraph></Typography>
                 <Typography paragraph></Typography>
-                {/* <div className="contenedorImagenes">
-                  <div>
-                    <img className="imgItineraries" src="" />
-                  </div>
-                  <div>
-                    <img className="imgItineraries" src="" />
-                  </div>
-                  <div>
-                    <img className="imgItineraries" src="" />
-                  </div>
-                </div> */} <ActivitiesCard/>
-
+                
+                <ActivitiesCard id={itinerarie._id} />
+                {console.log(itinerarie._id)}
                 <ExpandMore
                   className="showmore"
                   expand={expanded}
@@ -119,7 +108,7 @@ function Itineraries(props) {
 }
 const mapDispatchToProps = {
   fetchearItinerary: itinerariesActions.fetchearItinerary,
-  fetchearActivity: itinerariesActions.fetchearActivity,
+  fetchearActivity: activitiesAction.fetchearActivity,
 };
 
 const mapStateToProps = (state) => {

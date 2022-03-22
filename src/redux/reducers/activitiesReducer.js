@@ -1,35 +1,36 @@
 const initialState = {
     activities:[],
-    aux:[],
-    
+    auxiliar:[],
+   filterActivities: [],
+   activitiesByItinerary:  []
+
 }
 
 const activitiesReducer = (state = initialState, action)=>{
-
     switch(action.type){
         case 'fetchActivities':
 
             return {
                 ...state,
                 activities: action.payload,
-                aux: action.payload,
-                filterCities: action.payload
+                auxiliar: action.payload,
+                // filterActivities: action.payload
+
             }
 
-      
-        
-
-            
-        case "filterActivitiesForItinerary":
-            let retorno = action.payload
-            console.log(action.payload)
-            
+            case "fetchearUnaActivity":
             return{
                 ...state,
-                activities:retorno
+                activitiesByItinerary: action.payload,
             }
-         
 
+            case "filterActivitiesForItinerary":
+                let retorno = action.payload
+                console.log(action.payload)
+                return {
+                  ...state,
+                  activities: retorno
+                }
         default:
             return state
     }
