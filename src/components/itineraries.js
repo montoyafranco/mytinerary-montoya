@@ -1,18 +1,14 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
-
+// import { useParams } from "react-router-dom";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-
 import ActivitiesCard from "./activities";
-
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { useEffect } from "react";
 import activitiesAction from "../redux/actions/activitiesAction";
-
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesAction";
 
@@ -27,7 +23,12 @@ const ExpandMore = styled((props) => {
 }));
 
 function Itineraries(props) {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [reload, setReload] = useState(false);
+
+  useEffect(() => {
+    props.filterItinerarieForCity(props.id);
+  }, [reload]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -37,9 +38,14 @@ function Itineraries(props) {
   }
 
   console.log(props);
-
   
 
+  async function likesOrDislikes(itinerario) {
+    await props.likeDislike(itinerario);
+
+    setReload(!reload);
+  }
+  
   return (
     <div className="divHamburguesaDetail">
       {props.itineraries.length === 0 ? (
@@ -52,6 +58,7 @@ function Itineraries(props) {
       ) : (
         props.itineraries.map((itinerarie) => (
           <Card className="hamburguesa">
+            {console.log(itinerarie?.likes)}
             <div className="divImgItinerary">
               <img className="imgItinerary" src={itinerarie.imageUser} alt="" />
               <div className="nameUser">
@@ -66,7 +73,44 @@ function Itineraries(props) {
             <CardContent>
               <Typography variant="body2" color="text.secondary">
                 <h3>Duration⏲: {itinerarie.duration}Hs </h3>
-                <h3>Likes:♥{itinerarie.likes}</h3>
+
+                <div className="likeDislike">
+          {props.user ? (
+            <button
+              onClick={() => {
+                likesOrDislikes(itinerarie._id);
+              }}
+            >
+              {itinerarie?.likes.includes(props.user.id) ? (
+                <span
+                  style={{ color: "red", fontSize: 30 }}
+                  class="material-icons"
+                >
+                  favorite
+                </span>
+              ) : (
+                <span style={{ fontSize: 30 }} class="material-icons">
+                  favorite_border
+                </span>
+              )}
+            </button>
+          ) : (
+            <span style={{ fontSize: 30 }} class="material-icons">
+              favorite_border
+            </span>
+          )}
+
+          <h3 style={{ color: "black ", fontSize: 30 }}> 
+
+            {itinerarie?.likes.length}
+          </h3>
+        </div>
+
+                
+
+                <div>
+                  
+                </div>
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 <h3>Price: {"💸".repeat(parseInt(itinerarie.price))}</h3>
@@ -84,9 +128,6 @@ function Itineraries(props) {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
-                <Typography paragraph></Typography>
-                <Typography paragraph></Typography>
-                
                 <ActivitiesCard id={itinerarie._id} />
                 {console.log(itinerarie._id)}
                 <ExpandMore
@@ -109,11 +150,16 @@ function Itineraries(props) {
 const mapDispatchToProps = {
   fetchearItinerary: itinerariesActions.fetchearItinerary,
   fetchearActivity: activitiesAction.fetchearActivity,
+  likeDislike: itinerariesActions.likeDislike,
+  filterItinerarieForCity: itinerariesActions.filterItinerarieForCity,
+
 };
 
 const mapStateToProps = (state) => {
   return {
     itineraries: state.itinerariesReducer.itineraries,
+    user: state.userReducer.user,
+
   };
 };
 

@@ -24,6 +24,12 @@ function CardsDetalle(props) {
     window.scrollTo(0, 0);
     props.filterItinerarieForCity(id);
   }, []);
+
+
+
+
+
+  
   if (!card.element) {
     return <h1>Loading..</h1>;
   }
@@ -39,7 +45,7 @@ function CardsDetalle(props) {
       </div>
 
       <div className="divAccordion">
-        <Itineraries itinerary={props.itineraries} />
+        <Itineraries itinerary={props.itineraries} id={id} />
       </div>
       {/* <div>
         <NoItinerary noItinerary={props.itineraries.length ? true : false} />

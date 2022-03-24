@@ -1,6 +1,7 @@
+const passport = require('../config/passport')
 const Router = require("express").Router();
 const validator = require('../config/validator')
-const passport = require('../config/passport')
+
 
 const ciudadesController = require("../contollers/ciudadesControllers");
 
@@ -21,7 +22,7 @@ module.exports = Router;
 
 
 const itinerariesController = require('../contollers/itinerariesControllers')
-const {obtenerItineraries, obtenerUnItinerario, cargarItinerario, borrarItinerario, modificarItinerario,obtenerItinerarioPorIdCiudad} = itinerariesController
+const {obtenerItineraries, obtenerUnItinerario, cargarItinerario, borrarItinerario, modificarItinerario,obtenerItinerarioPorIdCiudad,likeDislike} = itinerariesController
 
 Router.route('/allitineraries')
 .get(obtenerItineraries)
@@ -67,6 +68,9 @@ Router.route('/allactivities/:id')
 
 Router.route('/allactivities/itinerary/:id')
 .get(obtenerActividadporItinerary)
+
+Router.route('/likesDislike/:id')
+.put(passport.authenticate("jwt", { session: false }), likeDislike)
 
 
 module.exports = Router  

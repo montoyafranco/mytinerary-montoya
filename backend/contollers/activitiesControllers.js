@@ -32,7 +32,7 @@ const activitiesControllers = {
       console.log(error);
     }
     res.json({
-      response: error ? "ERROR" : activities,
+      response: error ? "ERROR" : {activities},
       success: error ? false : true,
       error: error,
     });
