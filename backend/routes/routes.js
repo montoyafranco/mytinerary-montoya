@@ -72,5 +72,17 @@ Router.route('/allactivities/itinerary/:id')
 Router.route('/likesDislike/:id')
 .put(passport.authenticate("jwt", { session: false }), likeDislike)
 
+/////////////////////////////////////////////////////////
+
+const commentsControllers = require('../contollers/commentsController')
+const { addComment, modifiComment, deleteComment } = commentsControllers
+
+Router.route('/itinerary/comment')
+  .post(passport.authenticate('jwt', { session: false }), addComment)
+  .put(passport.authenticate('jwt', { session: false }), modifiComment)
+
+Router.route('/itinerary/comment/:id')
+  .post(passport.authenticate('jwt', { session: false }), deleteComment)
+
 
 module.exports = Router  

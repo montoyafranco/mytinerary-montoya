@@ -45,6 +45,7 @@ const itinerariesAction = {
         return async(dispatch, getState) =>{
             const res = await axios.get(`http://localhost:4000/api/allitineraries/ciudad/${id}`)
             dispatch({type: "filterItinerarieForCities", payload:res.data.respuesta})
+            return res.data.respuesta
         }
     },
     likeDislike: (id) => {

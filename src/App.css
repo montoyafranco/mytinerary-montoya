@@ -304,7 +304,7 @@ footer.text-center.text-white {
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #74588f31;
+  background-color: #eae5f0b9;
 }
 .imageDetaillCard {
   display: flex;
@@ -321,9 +321,9 @@ footer.text-center.text-white {
   background: linear-gradient(
     0deg,
     rgba(32, 37, 37, 1) 2%,
-    rgba(158, 56, 168, 0.6755077030812324) 15%,
-    rgba(166, 140, 207, 1) 67%,
-    rgba(160, 150, 212, 0.7287289915966386) 100%
+    rgba(200, 196, 201, 0.676) 15%,
+    rgb(11, 9, 14) 67%,
+    rgba(131, 129, 138, 0.729) 100%
   );
 }
 .hamburguesa {
@@ -335,8 +335,8 @@ footer.text-center.text-white {
   background: rgb(201, 216, 222) !important;
   background: radial-gradient(
     circle,
-    rgba(201, 216, 222, 0.9164040616246498) 18%,
-    rgba(233, 201, 148, 1) 100%
+    rgba(218, 226, 230, 0.916) 18%,
+    rgb(32, 26, 16) 100%
   ) !important;
 }
 .imgItinerary {

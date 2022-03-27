@@ -41,7 +41,7 @@ const itinerariesReducer = (state = initialState, action)=>{
             }
         case "filterItinerarieForCities":
             let retorno = action.payload
-            console.log(action.payload)
+            console.log("console log del action payload de reducer",action.payload)
             
             return{
                 ...state,
