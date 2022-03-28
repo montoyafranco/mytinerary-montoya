@@ -42,9 +42,6 @@ function Itineraries(props) {
     return <h2>loading</h2>;
   }
 
-  console.table("Console log de props", props);
-  console.log(inputText);
-  console.table(props.itinerary);
 
   async function likesOrDislikes(itinerario) {
     await props.likeDislike(itinerario);

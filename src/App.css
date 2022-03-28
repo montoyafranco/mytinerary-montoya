@@ -340,11 +340,11 @@ footer.text-center.text-white {
   ) !important;
 }
 .imgItinerary {
-  margin: 1rem;
+  margin: auto;
   display: flex;
   width: 70%;
   height: 70%;
-  border-radius: 100px;
+  border-radius: 200px;
 }
 .divImgItinerary {
   display: flex;
@@ -378,7 +378,7 @@ footer.text-center.text-white {
 .card-accordion {
   display: flex;
   flex-flow: column wrap;
-  background: linear-gradient(90deg, #83c5bfb9, #83c5c0, #83c5bfb9);
+  background: linear-gradient(90deg, #616b6ab9, #a9afaf, #aebbbab9);
   width: 30%;
   height: 45vh;
   margin: 0.7rem;
@@ -414,7 +414,7 @@ footer.text-center.text-white {
 .card-accordion1 {
   display: flex;
   flex-flow: column wrap;
-  background: linear-gradient(90deg, #83c5bfb9, #83c5c0, #83c5bfb9);
+  background: linear-gradient(90deg, #909b9ab9, #0f1312, #3f4444b9);
   width: 100%;
   height: 45vh;
   
