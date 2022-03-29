@@ -5,7 +5,7 @@ const activitiesAction = {
     fetchearActivity: () =>{
 
        return async(dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/allactivities/')
+            const res = await axios.get('https://mytinerary-montoya.herokuapp.com/api/allactivities/')
             dispatch({type:'fetchActivities', payload:res.data.response.activities})
        }
     },
@@ -13,7 +13,7 @@ const activitiesAction = {
     fetchearUnaActivity: (id) =>{
       console.log(id)
         return async (dispatch, getState) => {
-            const res = await axios.get("http://localhost:4000/api/allactivities/"+id)
+            const res = await axios.get("https://mytinerary-montoya.herokuapp.com/api/allactivities/"+id)
             console.log(res)
              dispatch({type:'fetchearUnaActivity', payload:res.data.response.activities})
 
@@ -24,7 +24,7 @@ const activitiesAction = {
     filterActivityforItinerary: (id) => {
 
       return async (dispatch, getState) => {
-        const res = await axios.get('http://localhost:4000/api/allactivities/itinerary/${id}')
+        const res = await axios.get('https://mytinerary-montoya.herokuapp.com/api/allactivities/itinerary/${id}')
         dispatch({ type: "filterActivitiesForItinerary", payload: res.data.respuesta })
       }
     },

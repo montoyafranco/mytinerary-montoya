@@ -4,7 +4,7 @@ const itinerariesAction = {
 
     fetchearItinerary: () =>{
        return async(dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/allitineraries')
+            const res = await axios.get('https://mytinerary-montoya.herokuapp.com/api/allitineraries')
             dispatch({type:'fetchearItinerary', payload:res.data.response.itineraries})
        }
     },
@@ -12,7 +12,7 @@ const itinerariesAction = {
         return async(dispatch, getState) => {
             try {
 
-                const respuesta = await axios.delete('http://localhost:4000/api/allitineraries/'+id)
+                const respuesta = await axios.delete('https://mytinerary-montoya.herokuapp.com/api/allitineraries/'+id)
 
                 dispatch({type:'borrarItineraries', payload:respuesta.data.respuesta})
 
@@ -29,21 +29,21 @@ const itinerariesAction = {
     },
     cargarItinerary: (name,cities)=>{
         return async(dispatch,getState)=>{
-            const respuesta = await axios.post('http://localhost:4000/api/allitineraries',{name,cities})
+            const respuesta = await axios.post('https://mytinerary-montoya.herokuapp.com/api/allitineraries',{name,cities})
             dispatch({type:'cargarItinerary', payload:respuesta.data.respuesta})
 
         }
     },
     fetchearUnItinerary: (id) =>{
         return async (dispatch, getState) => {
-            const res = await axios.get("http://localhost:4000/api/allitineraries/"+id)
+            const res = await axios.get("https://mytinerary-montoya.herokuapp.com/api/allitineraries/"+id)
             return (res.data.response)
         }
     },
     filterItinerarieForCity: (id) =>{
 
         return async(dispatch, getState) =>{
-            const res = await axios.get(`http://localhost:4000/api/allitineraries/ciudad/${id}`)
+            const res = await axios.get(`https://mytinerary-montoya.herokuapp.com/api/allitineraries/ciudad/${id}`)
             dispatch({type: "filterItinerarieForCities", payload:res.data.respuesta})
             return res.data.respuesta
         }
@@ -53,7 +53,7 @@ const itinerariesAction = {
         const token = localStorage.getItem('token')
         return async (dispatch,getState) => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/likesDislike/${id}`, {},
+                let response = await axios.put(`https://mytinerary-montoya.herokuapp.com/api/likesDislike/${id}`, {},
                 {headers: {
                     Authorization: "Bearer "+token
                     }
