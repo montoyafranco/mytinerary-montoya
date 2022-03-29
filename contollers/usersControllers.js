@@ -49,7 +49,7 @@ const usersControllers = {
     if (user) {
       user.emailVerificado = true; //COLOCA EL CAMPO emailVerified en true
       await user.save();
-      res.redirect("http://localhost:3000/signIn"); //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
+      res.redirect("https://mytinerary-montoya.herokuapp.com/signin"); //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
       //return  res.json({success:true, response:"Su email se ha verificado correctamente"})
     } else {
       res.json({ success: false, response: "Your email its not verified" });
