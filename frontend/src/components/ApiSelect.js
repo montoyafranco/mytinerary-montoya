@@ -13,7 +13,7 @@ const apiSelect =
         "name": "Paraguay",
         "capital": "Asunción",
         "continent": "South America",
-        "currency": "Paraguayan guaraní",
+        "currency": "Paraguayan guaraníe",
         "poblacion": 7132530,
         "bandera": "https://flagcdn.com/py.svg",
         "area": 406752
