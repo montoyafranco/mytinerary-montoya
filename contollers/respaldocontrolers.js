@@ -24,7 +24,7 @@ const sendEmail = async (email, uniqueString) => {
     from: sender, //DE QUIEN
     to: email, //A QUIEN
     subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
-    html: `<h1 style="color:red">Press <a href=http://localhost:4000/api/verify/${uniqueString}>here</a> to confirm your email. Thanks </h1>`,
+    html: `<h1 style="color:red">Press <a href=https://mytinerary-montoya.herokuapp.com/api/verify/${uniqueString}>here</a> to confirm your email. Thanks </h1>`,
   };
   await transporter.sendMail(mailOptions, function (error, response) {
     //SE REALIZA EL ENVIO
